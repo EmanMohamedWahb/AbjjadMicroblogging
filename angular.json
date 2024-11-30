@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "AbjjadMicrobloggingApp:build:production"
+              "buildTarget": "AbjjadMicrobloggingApp:build:production"
             },
             "development": {
-              "browserTarget": "AbjjadMicrobloggingApp:build:development"
+              "buildTarget": "AbjjadMicrobloggingApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AbjjadMicrobloggingApp:build"
+            "buildTarget": "AbjjadMicrobloggingApp:build"
           }
         },
         "test": {
