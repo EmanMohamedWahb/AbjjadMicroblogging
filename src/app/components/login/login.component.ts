@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -6,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  username = '';
+  password = '';
+  errorMessage = '';
 
+  constructor(private authService: AuthService, private router: Router) {}
+
+  login() {
+    this.authService.login(this.username, this.password).subscribe({
+      next: () => this.router.navigate(['/timeline']), 
+      error: (err) => {
+        this.errorMessage = 'Invalid username or password';
+        console.error(err);
+      }
+    });
+  }
 }

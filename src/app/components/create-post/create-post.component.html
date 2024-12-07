@@ -1,0 +1,18 @@
+<div class="create-post-container">
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    <form (ngSubmit)="submitPost()">
+        <div>
+            <textarea rows="5" cols="30" pInputTextarea name="postText" [(ngModel)]="postText" required maxlength="140"> </textarea>
+            <small>{{ postText.length }}/140</small>
+        </div>
+
+        <div>
+            <label for="image">Attach Image (Optional), 2MB Max size</label>
+            <input type="file" id="image" accept="image/png, image/webp, image/jpeg"  (change)="onImageSelected($event)" />   
+        </div>
+
+        <button type="submit" [disabled]="isSubmitting">Post</button>
+    </form>
+</div>
